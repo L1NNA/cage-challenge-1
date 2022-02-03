@@ -1,6 +1,9 @@
 # Copyright DST Group. Licensed under the MIT license.
 from CybORG.Simulator.Entity import Entity
 
+# __init__(): Constructor for local user groups, assigns group name, group ID(gid) and lists of users within group
+# get_state(self): returns dictionary of the group and group id
+# remove_user(self, user): if user is found within list of group, removes them from the list.
 
 class LocalGroup(Entity):
     def __init__(self, name: str = None, gid: int = None, users: list = None):
