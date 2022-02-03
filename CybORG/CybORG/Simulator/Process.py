@@ -9,7 +9,9 @@ from CybORG.Shared.Enums import (ProcessType, ProcessVersion,
 from CybORG.Simulator.Entity import Entity
 from CybORG.Simulator.User import User
 
-
+# Creates a process within the simulation
+# __init__(): Constructor for Process object, creates attributes for object.
+# get_state(self):
 class Process(Entity):
     def __init__(self, process_name: str, pid: int, parent_pid: int, username: str, program_name: str = None,
                  path: str = None, open_ports: list = None, process_type: str = None, process_version: str = None,
@@ -73,6 +75,11 @@ class Process(Entity):
             self.version = None
 
     def get_state(self):
+        """get_state(self):
+
+        Returns:
+            [list]: [returns observations]
+        """        
         observations = []
         for connections_dict in self.connections:
             obs = {"pid": self.pid, "parent_pid": self.ppid, "process_name": self.name, "program_name": self.program,
