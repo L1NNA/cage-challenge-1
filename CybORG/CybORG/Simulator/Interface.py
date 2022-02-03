@@ -3,7 +3,9 @@ from ipaddress import IPv4Address, IPv4Network
 
 from CybORG.Simulator.Entity import Entity
 
-
+# class Interface creates a object interface with parameter name, ip address and assigns it to a subnet
+# def __init__(): constructor for object, assigns attributes
+# def get_state(self): returns the attributes within a dictionary
 class Interface(Entity):
     def __init__(self, name: str = None, ip_address: str = None, subnet: str = None):
         super().__init__()
