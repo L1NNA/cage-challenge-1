@@ -7,6 +7,10 @@ from CybORG.Simulator.LocalGroup import LocalGroup
 from CybORG.Simulator.User import User
 import enum
 
+# The File class creates an object file, the file path, different permissions(users, groups, default), time created, time modified and 
+# indicates when it was last accessed and what version type is the file.
+# 1. __init__(): creates object, file. Assigns paramters to attributes for given object
+# 2. get_state(self): returns the dictionary obs
 
 class File(Entity):
     def __init__(self, name: str, path: str, user: User, user_permissions: int = None,
@@ -70,6 +74,7 @@ class File(Entity):
             return True
         return False
 
+    # Checks if the file is readable by a given user
     def check_readable(self, user: User):
         if self.default_permissions >= 4:
             return True
@@ -77,6 +82,6 @@ class File(Entity):
             return True
         if self.user == user.username and self.user_permissions >= 4:
             return True
-        if user.username == 'SYSTEM':
+        if user.username == 'SYSTEM': #'SYSTEM' represents admin?
             return True
         return False
