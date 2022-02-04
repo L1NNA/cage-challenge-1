@@ -1,7 +1,7 @@
 Written By: Michael Kalpouzos, 20116078
 
-The Scenarios information about how agents, subnets and hosts should work in specified scenarios 
-are kept in yaml files. These files are loaded and parsed through for the information and the data
+The Scenario's information about how agents, subnets and hosts should work in specified scenarios 
+are kept in yaml files. These files are loaded and parsed through for their information and the data
 of the scenario are kept and stored. 
 
 How will we specify a scenario for the emulation environment?
@@ -30,7 +30,7 @@ open-source intellegence. After retrieving all this information, it is returned 
 scenario_parser.py -
 This file is very similar to the ScenarioParser.py file. The file loads the contents of the yaml
 file and parses through the yaml file retieving the host names, subnet names and agent names.
-The python file then sifts through and parses through every host, subnet and agent. The main function
+The python file then parses through every host, subnet and agent. The main function
 in the file parses through both Scenario1.yaml and Scenario1b.yaml files.
 
 DataGatherer.py - 
