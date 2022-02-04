@@ -3,15 +3,31 @@ import yaml
 
 from CybORG.Shared.Scenarios.images.image_parser import parse_image
 
-
+""" This function lists the file that is called in and load the yaml scenario 
+file and calls parse_scenario to parse through it.
+"""
 def parse_scenario_file(scenario_file):
+    """
+        Parameters
+        ----------
+        scenario_file
+            scenario file name
+        """
     print(f'Parsing {scenario_file}')
     with open(scenario_file) as fIn:
         loaded_scenario = yaml.load(fIn, Loader=yaml.FullLoader)
     parse_scenario(loaded_scenario)
 
 
+""" This function parses through the given loaded yaml scenario file.
+"""
 def parse_scenario(scenario):
+    """
+        Parameters
+        ----------
+        scenario
+            yaml scenario file
+        """
     # parse hosts in scenario
     count = 0
     assert 'Hosts' in scenario
@@ -40,8 +56,19 @@ def parse_scenario(scenario):
 
 
 
-
+""" This function parses through the given loaded yaml scenario file.
+"""
 def parse_agent(agent, hostlist, subnetlist):
+    """
+        Parameters
+        ----------
+        agent
+            name of an agent in the scenario
+        hostlist
+            list of hosts in the scenario
+        subnetlist
+            list of subnets in scenario
+        """
     assert 'AllowedSubnets' in agent
     for subnet in agent['AllowedSubnets']:
         assert subnet in subnetlist, f'subnet {subnet} not in subnet list'
@@ -57,13 +84,31 @@ def parse_agent(agent, hostlist, subnetlist):
         assert session['hostname'] in hostlist, f'hostname {session["hostname"]} for session {session["name"]} not in hostlist'
     assert 'wrappers' in agent
 
-
+""" This function parses through the given loaded yaml scenario file.
+"""
 def parse_host(host):
+    """
+        Parameters
+        ----------
+        host
+            name of a host in the scenario
+        """
     assert 'image' in host
     parse_image(host['image'])
 
-
+""" This function parses through the given loaded yaml scenario file.
+"""
 def parse_subnet(subnet, host_list, subnet_list):
+    """
+        Parameters
+        ----------
+        subnet
+            name of a subnet in the scenario
+        hostlist
+            list of hosts in the scenario
+        subnetlist
+            list of subnets in scenario
+        """
     assert 'Hosts' in subnet
     for host in subnet['Hosts']:
         assert host in host_list

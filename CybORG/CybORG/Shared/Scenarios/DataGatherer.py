@@ -25,6 +25,8 @@ cyborg = CybORG(scenario, environment='aws', env_config={
     "config": AWSConfig.load_and_setup_logger(test=True),
     "create_tunnel": False
 })
+#This checks to see that the data given has all the required information and prints
+#that the state is true as it dumps the data into the outfile. 
 try:
     info_required = {'Test_Host': {'User_info': 'All',
                                   'System_info': 'All',

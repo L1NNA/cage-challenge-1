@@ -144,22 +144,28 @@ class Scenario:
     def predeployed(self) -> bool:
         return self._scenario.get("predeployed", False)
 
+    #This function return the size of a subnet.
     def get_subnet_size(self, subnetname: str) -> int:
         return self._scenario["Subnets"][subnetname]["Size"]
 
+    #This function return the hosts of a subnet.
     def get_subnet_hosts(self, subnetname: str) -> List[str]:
         return self._scenario["Subnets"][subnetname]["Hosts"]
 
+    #This function return the NACLs of a subnet.
     def get_subnet_nacls(self, subnetname: str) -> dict:
         subnet_info = self._scenario["Subnets"][subnetname]
         return subnet_info.get("NACLs", {})
 
+    #return the namew of the image of the host.
     def get_host_image_name(self, hostname: str) -> str:
         return self._scenario["Hosts"][hostname]["image"]
 
+    #returns the host's name.
     def get_host(self, hostname: str) -> dict:
         return self._scenario["Hosts"][hostname]
 
+    #returns the names of the host's subnets.
     def get_host_subnet_names(self, hostname: str) -> List[str]:
         host_subnets = []
         for subnetname in self.subnets:
@@ -167,6 +173,7 @@ class Scenario:
                 host_subnets.append(subnetname)
         return host_subnets
 
+    #returns the info of an agent in the scenario.
     def get_agent_info(self, agent_name: str) -> ScenarioAgent:
         return self._agents[agent_name]
 
