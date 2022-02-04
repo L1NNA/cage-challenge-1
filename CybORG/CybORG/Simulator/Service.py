@@ -8,7 +8,7 @@ class ServiceState(enum.Enum):
     UNKNOWN = enum.auto()
     OPEN = enum.auto()
     CLOSED = enum.auto()
-    FILTERED = enum.auto()
+    FILTERED = enum.auto() #used when unable to determine whether port is closed or filtered
 
     @classmethod
     def parse_string(cls, service_string):
