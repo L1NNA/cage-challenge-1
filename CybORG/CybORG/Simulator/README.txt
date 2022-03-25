@@ -25,6 +25,8 @@ Functionality allows the simulation controller to reset its environment
 
 *Side note: Not entirely sure about get_true_state(self, info: dict) -> Observation:
  -> Getting the value of the current state of the targeted host?
+ --> everything is visible in the state, per agent can't see the specific kind of information.
+ --> In virtual environment, agent can't see it until they see it.
 
 _parse_scenario(self, scenario_filepath: str, secnario_mod: dict = None):
 takes input data and converts it to a data structure 
