@@ -40,7 +40,7 @@ class SimulationController(EnvironmentController):
     def execute_action(self, action: Action) -> Observation:
         return action.sim_execute(self.state)
 
-    def restore(self, file: str):
+    def restore(self, file: str): #restore from a clean backup
         pass
 
     def save(self, file: str):
