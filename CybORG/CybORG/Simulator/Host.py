@@ -141,6 +141,7 @@ class Host(Entity):
         self.sessions[agent].append(new_session.ident)
         return new_session
 
+    # Creates a new process
     def add_process(self, name: str, user: str, pid: int = None, ppid: int = None, path: str = None,
                     program: str = None, process_type: str = None, version: str = None, open_ports: list = None,
                     decoy_type: DecoyType = DecoyType.NONE, connections=None, properties: Optional[List[str]] = None):
@@ -167,6 +168,7 @@ class Host(Entity):
         self.files.append(file)
         return file
 
+    # creates a new user
     def add_user(self, username: str, password: str = None, password_hash_type: str = None):
         if self.os_type == OperatingSystemType.LINUX:
             uid_list = [999]
@@ -205,6 +207,7 @@ class Host(Entity):
         return new_user
 
     def get_user(self, username):
+        """A method to get a user with its username"""
         for user in self.users:
             if username == user.username:
                 return user
